@@ -1,0 +1,53 @@
+/* CABEÇALHO */
+
+.layout-cabecalho {
+    height: 80px;
+    background-color: #fff;
+    
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+#logo {
+    padding: 0.8% 0 0 10%;
+    
+}
+
+.menu {
+    margin: 0;
+
+    font-size: 1.4rem;
+
+    list-style: none;
+}
+
+.menu__item > a {
+    text-decoration: none;
+
+    font-size: 1.8rem;
+
+    color: rgb(0, 0, 0);
+
+    
+}
+
+.menu__item {
+    float: left;
+    text-decoration: none;
+    list-style: none;
+    padding-right: 10%;
+
+    padding-top: 3%;
+}
+
+/* RODAPE */
+.layout-rodape {
+    padding: 7px 0;
+    background-color: #6f6f6f;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
