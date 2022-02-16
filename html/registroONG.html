@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>ONGs</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/cadastro.css">
+</head>
+
+<body>
+    <header>
+        <div class="layout-cabecalho">
+            <img id="logo" src="../img/logo.png" width="100" height="60" alt="Ongs">
+            <div class="menu">
+                <ul>
+                    <li class="menu__item">
+                        <a href="../index.html">Início</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="registro.html">Registrar-se</a>
+                    </li>
+                  </li>
+                  <li class="menu__item botao">
+                      <a href="login.html">Login</a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="conteudo">
+        <div class="formulario">
+            <div class="container">
+                <label id="cadastro">Cadastre sua ONG de Sabará para que ela seja ajudada!</label>
+                <form action="action_page.php">
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="name">Nome da ONG</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id="name" name="name" placeholder="Digite o nome da organização">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="endereco">Endereço</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id="endereco" name="endereco" placeholder="Exemplo: Av. Professor Mário Werneck, 2590 - Buritis, Belo Horizonte - MG, 30575-180">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="cpf">CNPJ</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="cnpj" name="cnpj" placeholder="000.000.000-00" data-mask="000.000.000-00" data-mask-selectonfocus="true">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="description">Descrição</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="description" name="description" placeholder="Digite a descrição e os dados bancários da ONG para receber doações">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="phone">Telefone</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="tel" id="phone" name="phone" placeholder="(00) 0 0000-0000">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <input type="submit" class ="botao" value="Registrar">
+                  </div>
+                </form>
+              </div>
+        </div>
+    </div>
+
+    <div class="layout-rodape">
+        <footer>
+            <p>&copy; ONGs Sabará. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
