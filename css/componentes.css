@@ -2,7 +2,7 @@
 
 .conteudo {
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 60% 40%;
 }
 
 .mapa {
@@ -28,6 +28,16 @@
     line-height: normal;
     font-size: 1em;
     text-decoration: none;
+}
+
+.botao > a {
+    color: #fff;
+}
+
+@media (max-width: 1224px) {
+    .botao {
+        padding: 0.5em 1.3em;;
+    } 
 }
 
 .botao:hover, .botao:focus {
