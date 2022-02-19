@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/componentes.css">
     <link rel="stylesheet" href="../css/cadastro.css">
+
 </head>
+
 
 <body>
     <header>
@@ -36,13 +38,13 @@
         <div class="formulario">
             <div class="container">
                 <label id="cadastro">Realize seu cadastro agora e ajude milhares de ONGs!</label>
-                <form action="action_page.php">
+                <form id="cadastroUser" action="cadastrar" method="POST">
                   <div class="row">
                     <div class="col-25">
                       <label for="name">Nome</label>
                     </div>
                     <div class="col-75">
-                      <input type="text" id="name" name="name" placeholder="Digite seu nome completo">
+                      <input type="text" id="name" name="nome" placeholder="Digite seu nome completo">
                     </div>
                   </div>
                   <div class="row">
@@ -66,7 +68,7 @@
                       <label for="password">Senha</label>
                     </div>
                     <div class="col-75">
-                        <input type="password" id="password" name="password" placeholder="Digite sua senha">
+                        <input type="password" id="password" name="senha" placeholder="Digite sua senha">
                     </div>
                   </div>
                   <div class="row">
@@ -90,4 +92,38 @@
             <p>&copy; ONGs Sabará. Todos os direitos reservados.</p>
         </footer>
     </div>
+
+    <script>
+
+
+const cadastroUser = document.getElementById("cadastroUser")
+        cadastroUser.addEventListener('submit', function (e) {
+            e.preventDefault()
+            const form = e.target
+            const formData = new FormData(form)
+
+            const options = {
+                method: form.method,
+                body: new URLSearchParams(formData)
+            }
+
+            console.log(options.body)
+            fetch(cadastroUser.action, options)
+            .then(resp => resp.json())
+            .then(
+                json => {
+                    var cpf = json.cpf
+                    var endereco = json.endereco
+
+                    alert(`cpf: ${cpf} ---- endereço: ${endereco}`)
+                }
+            )
+
+        })
+
+
+
+
+  
+    </script>
 </body>
