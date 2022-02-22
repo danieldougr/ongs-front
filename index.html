@@ -31,18 +31,57 @@
     </header>
 
     <div class="conteudo">
-        <div class="mapa">
-            <img id="mapaImg" src="img/map2.png" alt="Ongs">
+        <div id="mapa" >
+            iniciaMapa()
         </div>
 
         <div class="informacoes">
-            <p>Ong info</p>
+            <div class="informacoes informacoes__titulo">
+                <label for="tituloInfo">Informações da ONG:</label>
+            </div>   
+                    
+            <div class="informacoes informacoes__ONG">
+                <div class="informacoes informacoes__item">
+                    <label for="nome">Nome: </label>   
+                </div> 
+                <div class="informacoes informacoes__item">
+                    <label for="endereco">Endereço: </label>
+                </div>
+                <div class="informacoes informacoes__item">
+                    <label for="cnpj">CNPJ: </label>
+                </div>
+                <div class="informacoes informacoes__item">
+                    <label for="descricao">Descrição: </label>
+                </div>
+                <div class="informacoes informacoes__item">
+                    <label for="telefone">Telefone: </label>
+                </div>
+            </div>
         </div>
     </div>
 
     <footer class="layout-rodape">
         <p>&copy; ONGs Sabará. Todos os direitos reservados.</p>
     </footer>
+
+
+<script>
+
+function inicializar() {
+        var coordenadas = {lat: -22.912869, lng: -43.228963};
+
+        var mapa = new google.maps.Map(document.getElementById('mapa'), {
+          zoom: 15,
+          center: coordenadas 
+        });
+    }
+    
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlpmcq1KpJDwxU79AU9W7T6uTDZsOhf3A&callback=inicializar">
+</script>
+
 </body>
 
 </html>
