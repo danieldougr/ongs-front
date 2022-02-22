@@ -5,8 +5,16 @@
     grid-template-columns: 60% 40%;
 }
 
-.mapa {
-    border: 0;
+#mapa {
+    /* border: 0;
+    height: auto;
+    width: auto; */
+
+    background-color: red;
+    width: 100%;
+    height: 100vh;
+    
+    position: relative;
 }
 
 .informacoes {

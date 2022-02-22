@@ -1,7 +1,7 @@
 const db = require('../database/database')
 
 class CadastraUsuario{
-    cadastrar(newUser, endereco, res){
+    cadastrar(newUser, res){
 
         //POST novo usuário
 
@@ -18,15 +18,15 @@ class CadastraUsuario{
 
         db.run(sql,(erro, resposta)=>{
             if(erro){
-                console.log("usuario ERR")
-                res.send(erro)
+              var infoErr = {
+                  msg: `ESTE CPF JÁ ESTÁ CADASTRADO NO SITE`
+              }
+                res.status(400).json(infoErr)
             }else{
-                var aux = { 
-                    cpf: newUser.cpf,
-                    endereco: endereco
+                var info = {
+                    msg: `USUÁRIO CADASTRADO COM SUCESSO.`
                 }
-                console.log(aux)
-               res.status(200).send(aux);
+               res.status(200).json(info);
             }
         })
 
@@ -34,22 +34,11 @@ class CadastraUsuario{
 
 
 
-   cadastraEndereco(values, res){
-        const sql = `SELECT cpf FROM usuario where id = ${cpf}`
+   
 
-        db.run(sql,(erro, resposta)=>{
-            if(resposta != null){
-                console.log("Achou o user")
-                res.status(200).json(resposta)
-            }else{
-               res.status(400).json(erro)
-               console.log("não cadastrou ainda")
-            }
-        })
+    
 
-    }
-
-
+    
     retornaTodos(res){
         const sql = 'SELECT * FROM usuario'
 

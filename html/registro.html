@@ -92,38 +92,5 @@
             <p>&copy; ONGs Sabará. Todos os direitos reservados.</p>
         </footer>
     </div>
-
-    <script>
-
-
-const cadastroUser = document.getElementById("cadastroUser")
-        cadastroUser.addEventListener('submit', function (e) {
-            e.preventDefault()
-            const form = e.target
-            const formData = new FormData(form)
-
-            const options = {
-                method: form.method,
-                body: new URLSearchParams(formData)
-            }
-
-            console.log(options.body)
-            fetch(cadastroUser.action, options)
-            .then(resp => resp.json())
-            .then(
-                json => {
-                    var cpf = json.cpf
-                    var endereco = json.endereco
-
-                    alert(`cpf: ${cpf} ---- endereço: ${endereco}`)
-                }
-            )
-
-        })
-
-
-
-
-  
-    </script>
+    
 </body>

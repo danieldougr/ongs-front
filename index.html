@@ -31,8 +31,8 @@
     </header>
 
     <div class="conteudo">
-        <div class="mapa">
-            <img id="mapaImg" src="img/map2.png" alt="Ongs">
+        <div id="mapa" >
+            iniciaMapa()
         </div>
 
         <div class="informacoes">
@@ -43,6 +43,25 @@
     <footer class="layout-rodape">
         <p>&copy; ONGs Sabará. Todos os direitos reservados.</p>
     </footer>
+
+
+<script>
+
+function inicializar() {
+        var coordenadas = {lat: -22.912869, lng: -43.228963};
+
+        var mapa = new google.maps.Map(document.getElementById('mapa'), {
+          zoom: 15,
+          center: coordenadas 
+        });
+    }
+    
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlpmcq1KpJDwxU79AU9W7T6uTDZsOhf3A&callback=inicializar">
+</script>
+
 </body>
 
 </html>
