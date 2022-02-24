@@ -1,18 +1,21 @@
-const cadastraUsuario = require('../model/cadastraOng.js')
+const validaLogin = require('../model/validaLogin')
 
 module.exports = app => {
-    app.post('/html/cadastrarOng', (req,res) => {
+    app.post('/html/logar', (req,res) => {
 
-        var newOng = {
-            cnpj: req.body.cpf,
-            nome: req.body.nome,
-            // endereco = req.body.endereco,
-            contato: req.body.email,
-            senha: req.body.senha,
-            permissao: 0
-            
+        var auth = {
+            cpf: req.body.cpf,
+            senha: req.body.senha
         }
 
-        cadastraUsuario.cadastrar(newUser, res);
+        // console.log(auth)
+        if(auth.cpf == '' || auth.senha == '')
+        {
+            res.send("CPF E SENHA OBRIGATÓRIOS.")
+        }
+        else
+        {
+            validaLogin.validarLogin(auth, res);
+        }
     })
 }

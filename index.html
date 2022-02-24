@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/componentes.css">
+    <link rel="shortcut icon" href="img/ICONE.ico"/>
 </head>
 
 <body>
@@ -32,7 +33,7 @@
 
     <div class="conteudo">
         <div id="mapa" >
-            iniciaMapa()
+            
         </div>
 
         <div class="informacoes">
@@ -64,18 +65,50 @@
         <p>&copy; ONGs Sabará. Todos os direitos reservados.</p>
     </footer>
 
-
 <script>
+   
+  function inicializar()
+{
+    var coordenadas = {lat: -19.8872984, lng: -43.8649765};
 
-function inicializar() {
-        var coordenadas = {lat: -22.912869, lng: -43.228963};
+    var mapa = new google.maps.Map(document.getElementById('mapa'), {
+    zoom: 13,
+    center: coordenadas 
+});
 
-        var mapa = new google.maps.Map(document.getElementById('mapa'), {
-          zoom: 15,
-          center: coordenadas 
-        });
+    var myInit = { 
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+          },
     }
-    
+
+    fetch("http://localhost:8080/marks", myInit) 
+    .then(resp => resp.json())
+        .then(
+            // json => console.log(`AQUI O JSON RETORNADO DO FETCH ${json}`)
+               json => json.map(value => {     
+                let {latitude, longitude, nome, endereco} = value
+
+                if(latitude && longitude && nome && endereco) 
+                {
+                    console.log("teste")
+                    var pos = {
+                        lat: value.latitude,
+                        lng: value.longitude
+                    }
+
+                    var info = `NOME: ${value.nome} ... ENDEREÇO: ${value.endereco}`
+                    console.log(pos)
+
+                    var marker = new google.maps.Marker({
+                    position: pos,
+                    map: mapa,
+                    title: info
+        });
+                }
+            })
+        )}
 </script>
 
 <script async defer

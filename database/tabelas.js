@@ -13,7 +13,7 @@ class Tabelas {
             email varchar(50) NOT NULL, \
             senha varchar(32) NOT NULL, \
             permissao int NOT NULL, \
-            endereco varchar(200)) \
+            endereco varchar(200) NOT NULL) \
             '
         this.db.run(sql, (erro) => {
             if(erro){
@@ -44,7 +44,9 @@ class Tabelas {
                 ong(cnpj BIGINT primary key, \
                 nome varchar(300) NOT NULL, \
                 contato varchar(11) NOT NULL,  \
-                coordenada varchar(10) NOT NULL, \
+                latitude float(10) , \
+                longitude float(10) , \
+                descricao varchar , \
                 endereco varchar(200) NOT NULL) \
                 '
                 this.db.run(sql, (erro) => {

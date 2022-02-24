@@ -2,21 +2,35 @@ const db = require('../database/database')
 
 class validaLogin{
 
-
-    validaLogin(cpf, res){
-        const sql = ` SELECT (SELECT COUNT(*) FROM usuario WHERE cpf = '${cpf}') > 0;`
-
-        db.run(sql,(erro, resposta)=>{
+    validarLogin(auth, res){
+        const sql = `SELECT cpf, senha FROM usuario WHERE cpf = "${auth.cpf}" and senha = "${auth.senha}";`
+        
+        db.all(sql,(erro, row)=>{
+            
+            // console.log(row[0].cpf)
+            // console.log("row")
             if(erro){
-                console.log("endereco ERR")
-                res.status(400).send(erro)
+                var info = {
+                    msg: 'ERRO LOGIN'
+                }
+                res.status(400).send(info.msg)
             }else{
-                console.log(resposta)
-                return resposta;
-            }
-        })
 
+                // console.log("else")
+                // console.log(row)
+                if(row[0]){
+                        res.redirect('http://localhost:8080/html/registroOng.html')
+                    }
+                    else
+                    {
+                        var info2 = {
+                            msg: 'USUÁRIO NÃO CADASTRADO.'
+                        }
+                        res.status(400).send(info2.msg)
+                    }
+                }
+            })
+                
     }
-
-
 }
+module.exports = new validaLogin
