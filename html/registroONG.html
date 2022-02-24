@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/componentes.css">
     <link rel="stylesheet" href="../css/cadastro.css">
+    <script src="model/cadastraOngs.js"></script>
 </head>
 
 <body>
@@ -36,13 +37,13 @@
         <div class="formulario">
             <div class="container">
                 <label id="cadastro">Cadastre sua ONG de Sabará para que ela seja ajudada!</label>
-                <form action="action_page.php">
+                <form id ="cadastraong" action="cadastraong" method="POST">
                   <div class="row">
                     <div class="col-25">
                       <label for="name">Nome da ONG</label>
                     </div>
                     <div class="col-75">
-                      <input type="text" id="name" name="name" placeholder="Digite o nome da organização">
+                      <input type="text" id="nome" name="nome" placeholder="Digite o nome da organização">
                     </div>
                   </div>
                   <div class="row">
@@ -51,6 +52,22 @@
                     </div>
                     <div class="col-75">
                       <input type="text" id="endereco" name="endereco" placeholder="Exemplo: Av. Professor Mário Werneck, 2590 - Buritis, Belo Horizonte - MG, 30575-180">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="LATITUDE">Latitude</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id="Latitude" name="latitude" placeholder="Exemplo: -15.15584">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="longitude">Longitude</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id="longitude" name="longitude" placeholder="Exemplo: 10.55584">
                     </div>
                   </div>
                   <div class="row">
@@ -66,7 +83,7 @@
                       <label for="description">Descrição</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="description" name="description" placeholder="Digite a descrição e os dados bancários da ONG para receber doações">
+                        <input type="text" id="descricao" name="descricao" placeholder="Digite a descrição e os dados bancários da ONG para receber doações">
                     </div>
                   </div>
                   <div class="row">
@@ -74,7 +91,7 @@
                       <label for="phone">Telefone</label>
                     </div>
                     <div class="col-75">
-                      <input type="tel" id="phone" name="phone" placeholder="(00) 0 0000-0000">
+                      <input type="tel" id="telefone" name="contato" placeholder="(00) 0 0000-0000">
                     </div>
                   </div>
                   <div class="row">
@@ -90,4 +107,6 @@
             <p>&copy; ONGs Sabará. Todos os direitos reservados.</p>
         </footer>
     </div>
+
+   
 </body>
